@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowerBedder | Design, Plan, and Celebrate Your Flower Beds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <div class="branding">
+          <span class="brand-mark">🌸</span>
+          <span class="brand-name">FlowerBedder</span>
+        </div>
+        <nav class="main-nav">
+          <a href="#discover">Discover</a>
+          <a href="#design">Design</a>
+          <a href="#planning">Plan</a>
+          <a href="#library">Library</a>
+          <a href="#journal">Journal</a>
+        </nav>
+        <a class="cta" href="#design">Start Planning</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-copy">
+            <h1>Design, nurture, and celebrate flower beds that thrive.</h1>
+            <p>
+              FlowerBedder keeps every garden idea, planting plan, seasonal task,
+              and bloom story organized in one beautiful workspace.
+            </p>
+            <div class="hero-actions">
+              <a class="primary" href="#design">Create a bed plan</a>
+              <a class="secondary" href="#journal">Log today&rsquo;s blooms</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-snapshot">
+              <div class="snapshot-card">
+                <h3>Shade Serenity Bed</h3>
+                <p>Mauve, Peach, Ivory</p>
+                <div class="snapshot-row">
+                  <span>🌤️ Partial shade</span>
+                  <span>🌱 Perennial mix</span>
+                </div>
+                <div class="snapshot-tiles">
+                  <span>Lilies</span>
+                  <span>Hostas</span>
+                  <span>Astilbe</span>
+                  <span>Ferns</span>
+                </div>
+              </div>
+              <div class="snapshot-note">
+                <p>&ldquo;Peak blooms late June. Add pollinator stakes.&rdquo;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pillars">
+        <div class="wrap">
+          <div class="pillars-grid">
+            <article>
+              <h3>Visualize every bed</h3>
+              <p>
+                Map out dimensions, color palette, and plant mixes with
+                drag-friendly cards that perfectly match your garden zones.
+              </p>
+            </article>
+            <article>
+              <h3>Plan by season</h3>
+              <p>
+                Build a maintenance calendar by sunlight, bloom time, and growth
+                habits to know exactly what needs love each month.
+              </p>
+            </article>
+            <article>
+              <h3>Curate your plants</h3>
+              <p>
+                Filter a living plant library by sun, soil, and color accents to
+                discover combinations that thrive in your beds.
+              </p>
+            </article>
+            <article>
+              <h3>Journal the journey</h3>
+              <p>
+                Capture photos, weather notes, and quick reflections to watch
+                your beds mature season after season.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="design" class="design-area">
+        <div class="wrap">
+          <h2>Design your next flower bed</h2>
+          <p class="section-lead">
+            Track dimensions, sun exposure, and the blooms you want to feature.
+            Add multiple beds to create a full garden layout.
+          </p>
+
+          <div class="design-grid">
+            <form id="bed-form" class="panel">
+              <h3>New bed details</h3>
+              <label>
+                Bed name
+                <input type="text" id="bed-name" placeholder="Sunrise Border" required />
+              </label>
+              <label>
+                Shape
+                <select id="bed-shape">
+                  <option value="Oval">Oval</option>
+                  <option value="Rectangle">Rectangle</option>
+                  <option value="Island">Island</option>
+                  <option value="Arc">Arc</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </label>
+              <div class="inline">
+                <label>
+                  Width (ft)
+                  <input type="number" id="bed-width" min="1" step="0.5" value="6" />
+                </label>
+                <label>
+                  Length (ft)
+                  <input type="number" id="bed-length" min="1" step="0.5" value="12" />
+                </label>
+              </div>
+              <label>
+                Sun exposure
+                <select id="bed-sunlight">
+                  <option value="Full sun">Full sun</option>
+                  <option value="Partial shade">Partial shade</option>
+                  <option value="Dappled light">Dappled light</option>
+                  <option value="Full shade">Full shade</option>
+                </select>
+              </label>
+              <label>
+                Highlight colors
+                <input
+                  type="text"
+                  id="bed-colors"
+                  placeholder="Coral, cream, plum"
+                />
+              </label>
+              <label>
+                Key plants (comma separated)
+                <input
+                  type="text"
+                  id="bed-plants"
+                  placeholder="Salvia, coneflower, bee balm"
+                />
+              </label>
+              <label>
+                Notes &amp; focal points
+                <textarea
+                  id="bed-notes"
+                  rows="3"
+                  placeholder="Add trellis for climbing roses"
+                ></textarea>
+              </label>
+              <button type="submit" class="primary full">Save bed plan</button>
+            </form>
+
+            <div class="panel">
+              <h3>Bed gallery</h3>
+              <p class="panel-lead">
+                Click a card to toggle a quick focus note for that bed.
+              </p>
+              <div id="beds-list" class="cards-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="planning" class="planning-area">
+        <div class="wrap">
+          <div class="planning-header">
+            <div>
+              <h2>Stay on top of seasonal care</h2>
+              <p class="section-lead">
+                Build a rolling task plan so every bed gets attention before
+                blooms peak.
+              </p>
+            </div>
+            <form id="task-form" class="compact-form panel">
+              <h3>Quick task</h3>
+              <label>
+                Month
+                <select id="task-month">
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
+              </label>
+              <label>
+                Task
+                <input
+                  type="text"
+                  id="task-title"
+                  placeholder="Deadhead coneflowers and refresh mulch"
+                  required
+                />
+              </label>
+              <label>
+                Assign bed
+                <input
+                  type="text"
+                  id="task-bed"
+                  placeholder="Shade Serenity Bed"
+                />
+              </label>
+              <button type="submit" class="primary full">Add task</button>
+            </form>
+          </div>
+
+          <div class="timeline" id="tasks-timeline"></div>
+        </div>
+      </section>
+
+      <section id="discover" class="discover-area">
+        <div class="wrap">
+          <div class="discover-grid">
+            <div class="discover-copy">
+              <h2>Discover fresh flower ideas</h2>
+              <p class="section-lead">
+                Tell us the season, height, and color energy you want to feature and we&rsquo;ll surface plants that fit the moment.
+              </p>
+              <ul class="discover-highlights">
+                <li>Seasonal stars for staggered bloom windows</li>
+                <li>Height layers that keep beds balanced</li>
+                <li>Color stories that complement your palette</li>
+              </ul>
+            </div>
+            <form id="discover-form" class="panel">
+              <h3>Tune your search</h3>
+              <label>
+                Bloom season
+                <select id="discover-season">
+                  <option value="Any">Any season</option>
+                  <option value="Spring">Spring</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Fall">Fall</option>
+                  <option value="Winter">Winter interest</option>
+                </select>
+              </label>
+              <label>
+                Sunlight
+                <select id="discover-sun">
+                  <option value="Any">Any light</option>
+                  <option value="Full sun">Full sun</option>
+                  <option value="Partial shade">Partial shade</option>
+                  <option value="Full shade">Full shade</option>
+                </select>
+              </label>
+              <label>
+                Height
+                <select id="discover-height">
+                  <option value="Any">Any height</option>
+                  <option value="Low">Low (under 18")</option>
+                  <option value="Medium">Medium (18-32")</option>
+                  <option value="Tall">Tall (over 32")</option>
+                </select>
+              </label>
+              <label>
+                Color energy
+                <select id="discover-color">
+                  <option value="Any">Any palette</option>
+                  <option value="Warm">Warm &mdash; sunset brights</option>
+                  <option value="Cool">Cool &mdash; serene blues</option>
+                  <option value="Neutral">Neutral &mdash; soft whites</option>
+                  <option value="Bold">Bold &mdash; saturated pops</option>
+                </select>
+              </label>
+              <label>
+                Special focus
+                <select id="discover-focus">
+                  <option value="Any">Any</option>
+                  <option value="Pollinator">Pollinator magnets</option>
+                  <option value="Drought">Drought friendly</option>
+                  <option value="Cut">Cut-flower ready</option>
+                  <option value="Fragrant">Fragrant picks</option>
+                </select>
+              </label>
+              <button type="button" id="discover-random" class="secondary full">Surprise me</button>
+            </form>
+          </div>
+          <div id="discover-results" class="cards-grid discover-results" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="library" class="library-area">
+        <div class="wrap">
+          <h2>Curated plant library</h2>
+          <p class="section-lead">
+            Mix and match blooms that share light and soil preferences. The
+            filters below update instantly.
+          </p>
+          <form id="filter-form" class="filters panel">
+            <label>
+              Sun needs
+              <select id="filter-sun">
+                <option value="All">All</option>
+                <option value="Full sun">Full sun</option>
+                <option value="Partial shade">Partial shade</option>
+                <option value="Full shade">Full shade</option>
+              </select>
+            </label>
+            <label>
+              Color accent
+              <select id="filter-color">
+                <option value="All">All</option>
+                <option value="Warm">Warm</option>
+                <option value="Cool">Cool</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Bold">Bold</option>
+              </select>
+            </label>
+            <label>
+              Height
+              <select id="filter-height">
+                <option value="All">All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="Tall">Tall</option>
+              </select>
+            </label>
+            <label class="search">
+              Search
+              <input type="search" id="filter-query" placeholder="Lavender..." />
+            </label>
+          </form>
+          <div id="plant-list" class="cards-grid plants"></div>
+        </div>
+      </section>
+
+      <section id="journal" class="journal-area">
+        <div class="wrap">
+          <div class="journal-grid">
+            <div>
+              <h2>Journal blooms and breakthroughs</h2>
+              <p class="section-lead">
+                Keep quick snapshots of weather, new growth, and ideas to try
+                next time. Entries stay stored locally on your device.
+              </p>
+            </div>
+            <form id="journal-form" class="panel">
+              <h3>New entry</h3>
+              <label>
+                Date
+                <input type="date" id="journal-date" required />
+              </label>
+              <label>
+                Highlight
+                <input
+                  type="text"
+                  id="journal-title"
+                  placeholder="First peony blooms!"
+                  required
+                />
+              </label>
+              <label>
+                Weather or mood
+                <input
+                  type="text"
+                  id="journal-weather"
+                  placeholder="Sunny, breezy 72°F"
+                />
+              </label>
+              <label>
+                Notes
+                <textarea
+                  id="journal-notes"
+                  rows="4"
+                  placeholder="Noticed aphids on the roses &mdash; treat tomorrow."
+                ></textarea>
+              </label>
+              <label>
+                Photo URL (optional)
+                <input
+                  type="url"
+                  id="journal-photo"
+                  placeholder="https://example.com/peony.jpg"
+                />
+              </label>
+              <button type="submit" class="primary full">Log entry</button>
+            </form>
+          </div>
+          <div id="journal-entries" class="cards-grid journal"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          FlowerBedder is your personal garden studio. Track plans, tasks, and
+          memories in one place.
+        </p>
+        <p class="small-print">
+          Built with 🌸 for gardeners. Data stays in your browser.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./src/main.js" type="module"></script>
+  </body>
+</html>
